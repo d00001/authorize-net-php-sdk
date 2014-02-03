@@ -522,4 +522,8 @@ class AuthorizeNetCIM_Response extends AuthorizeNetXMLResponse
         return $this->_getElementContents("customerPaymentProfileId");
     }
 
+    public function getHostedProfilePageToken()
+    {
+        return $this->xml->token ;
+    }
 }
