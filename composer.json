@@ -1,0 +1,15 @@
+{
+    "name": "dramos/authorize-net-php-sdk",
+    "description": "A PHP library for working with all Authorize.Net APIs.",
+    "keywords": ["authorize.net", "ecommerce", "payment","php"],
+    "type": "library",
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/",
+            "AuthorizeNet.php"
+        ]
+    }
+}
