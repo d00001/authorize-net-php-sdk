@@ -226,10 +226,21 @@ class AuthorizeNetCIM extends AuthorizeNetRequest
      * @param $customerProfileId
      * @return AuthorizeNetCIM_Response
      */
-    public function getHostedProfilePageToken($customerProfileId)
+    public function getHostedProfilePageToken($customerProfileId, array $settings = array())
     {
         $this->_constructXml("getHostedProfilePageRequest");
         $this->_xml->addChild("customerProfileId", $customerProfileId);
+
+        if(count($settings))
+        {
+            $settings = $this->_xml->addChild("hostedProfileSettings") ;
+            foreach($settings as $name => $value)
+            {
+                $settings->_xml->addChild('setting')
+                    ->addChild('settingName', $name)
+                    ->addChild('settingValue', $value) ;
+            }
+        }
 
         return $this->_sendRequest();
     }
